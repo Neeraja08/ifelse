@@ -1,0 +1,10 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  div {
+    margin: 10px 15px;
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+  }
+}

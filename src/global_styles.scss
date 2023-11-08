@@ -1,0 +1,193 @@
+/* Add application styles & imports to this file! */
+@import 'node_modules/bootstrap/scss/bootstrap';
+$primary: #506de2;
+$body-bg: #f4f7fc;
+$card-bg: #fff;
+$body-color: #474747;
+$body-color-rgb: #b8bec6;
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #a19898;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.coloractive{
+  background-color: $primary;
+}
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  background-color: $body-bg;
+  color: $body-color;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: $card-bg;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.header {
+  background-color: $card-bg;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1rem;
+  padding-left: 56px;
+  font-size: 0.6rem;
+  svg {
+    color: $body-color-rgb;
+  }
+  .lt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: $body-color-rgb;
+  }
+  .rt {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    .avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      img {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+      }
+      .name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .lang {
+      display: flex;
+    }
+    .message {
+      position: relative;
+      &::after {
+        content: '';
+        width: 4px;
+        height: 4px;
+        background-color: rgb(62, 245, 62);
+        position: absolute;
+        border-radius: 30px;
+        right: -5px;
+      }
+    }
+    .notification {
+      position: relative;
+      &::after {
+        content: '';
+        width: 4px;
+        height: 4px;
+        background-color: rgb(253, 21, 21);
+        position: absolute;
+        border-radius: 30px;
+        right: -2px;
+      }
+    }
+  }
+}
+
+.sidebar {
+  background-color: $card-bg;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  svg {
+    color: $body-color-rgb;
+  }
+  div {
+    padding: 0 1rem;
+  }
+
+  .burger {
+    background-color: $primary;
+    color: white;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .active svg {
+    color: $primary;
+  }
+}
+
+.page-view {
+  padding-left: 52px;
+  padding-top: 52px;
+}
+
+.style-card {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  &.active {
+    background-color: $primary;
+    color: #ffff !important;
+    .card-percentage {
+      color: #ffff !important;
+    }
+  }
+  .card-text {
+    .card-percentage {
+      font-size: 2rem;
+      color: $primary;
+    }
+    .card-heading {
+    }
+    .card-detail {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      font-size: 10px;
+    }
+  }
+  .card-logo {
+    height: 40px;
+    width: 40px;
+  }
+}
