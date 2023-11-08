@@ -13,6 +13,7 @@ import {
 } from 'ng-apexcharts';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
+import { series } from './data';
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   annotations: ApexAnnotations;
@@ -41,13 +42,15 @@ export class StackedBarChartComponent implements OnInit {
       series: [
         {
           name: 'PRODUCT A',
-          data: [10, 55, 41, 67, 22, 43, 21, 49, 30, 40, 10, 34],
+          data: [50, 50, 93, 40, 20, 100, 40, 10, 70, 100, 80, 40],
+
           color: '#506DE2',
         },
         {
           name: 'PRODUCT B',
-          data: [13, 23, 20, 8, 13, 27, 33, 12, 30, 20, 30, 30],
+          data: [30, 100, 52, 15, 10, 95, 20, 5, 50, 90, 70, 30],
           color: '#8EA5FB',
+    
         },
       ],
       chart: {
@@ -55,6 +58,7 @@ export class StackedBarChartComponent implements OnInit {
           show: false,
         },
         type: 'bar',
+        height: 350,
         stacked: true,
       },
       dataLabels: {
@@ -103,9 +107,7 @@ export class StackedBarChartComponent implements OnInit {
           columnWidth: '8px',
         },
       },
-      yaxis: {
-        tickAmount: 6, // Specify the number of y-axis ticks
-      },
+    
       fill: {
         opacity: 1,
       },
