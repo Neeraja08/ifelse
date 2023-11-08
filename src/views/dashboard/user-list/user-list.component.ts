@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.scss'],
   standalone: true,
   imports: [CommonModule],
-  host: { class: 'd-flex flex-grow-1 flex-column' },
+  host: { class: 'flexer' },
 })
 export class UserListComponent implements OnInit {
   @Input() users:any=[];

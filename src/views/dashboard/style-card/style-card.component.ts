@@ -9,7 +9,7 @@ import { asyncScheduler, map } from 'rxjs';
   styleUrls: ['./style-card.component.scss'],
   standalone: true,
   imports: [CommonModule],
-  host: { class: 'd-flex flex-grow-1 flex-column' },
+  host: { class: 'flexer' },
 })
 export class StyleCardComponent implements OnInit {
   @Input() active: boolean = false;

@@ -13,7 +13,6 @@ import {
 } from 'ng-apexcharts';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
-import { series } from './data';
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   annotations: ApexAnnotations;
@@ -32,7 +31,7 @@ export type ChartOptions = {
   styleUrls: ['./area-chart.component.scss'],
   standalone: true,
   imports: [CommonModule, NgApexchartsModule],
-  host: { class: 'd-flex flex-grow-1 flex-column' },
+  host: { class: 'flexer' },
 })
 export class AreaChartComponent implements OnInit {
   //@ViewChild('chart') chart: ChartComponent;
@@ -42,14 +41,14 @@ export class AreaChartComponent implements OnInit {
     this.chartOptions = {
       series: [{
         name: 'series1',
-        type: 'line',
+        type: 'area',
         color:'#506de2',
-        data: [6, 20, 15, 29,  28, 23,45],
+        data: [6, 20, 15, 29, 28, 23, 45],
       },
       {
         name: 'series2',
         data: [6,15,9,22,20,15,40],
-       color:'#edeef6',
+       color:'#7584a2',
        type:'line'
       },
       ],
@@ -58,7 +57,7 @@ export class AreaChartComponent implements OnInit {
           show: false,
           background: '#fff'
         },
-        height: 350,
+        height: 300,
         zoom: {
           enabled: false,
         },
@@ -69,38 +68,54 @@ export class AreaChartComponent implements OnInit {
       stroke: {
         curve: 'smooth'
       },
-      points: [
-        {
-         y:'Thu',
-         x:28,
-          marker: {
-            size: 6,
-            fillColor: "#fff",
-            strokeColor: "#2698FF",
-            radius: 2
-          },
-          label: {
-            borderColor: "#FF4560",
-            offsetY: 0,
-            style: {
-              color: "#fff",
-              background: "#FF4560"
+      annotations: {
+        points: [
+          {
+            x: 'Thu',
+            y: 28,
+            marker: {
+              size: 6,
+              fillColor: '#fff',
+              strokeColor: '#506de2',
+              radius: 2,
+              strokeWidth: 5,
             },
-  
-            text: "Point Annotation (XY)"
+            label: {
+              borderColor: "#7584a2",
+              offsetY: -20,
+              textAnchor: 'middle',
+              style: {
+                color: "#506de2",
+                background: "#fff",
+                padding: {
+                  left: 10,
+                  right: 10,
+                  top: 10,
+                  bottom: 10,
+                },
+                fontSize: '20px'
+              },
+              text: "$28.00",
+            },
           }
-        }
-      ],
+        ],
+      },
       title: {
         text: 'Sales Statistics',
         align: 'left',
+        style: {
+          fontSize:  '15px',
+          fontWeight:  'bold',
+          color:  '#535866',
+          fontFamily: 'sans-serif'
+        },
       },
       fill: {
         type: 'gradient',
         gradient: {
           shadeIntensity:1,
-          opacityFrom:0.7,
-          opacityTo: 0.9,
+          opacityFrom:0.1,
+          opacityTo: 0.5,
           stops: [0,90,100]
         }
       },
@@ -108,7 +123,7 @@ export class AreaChartComponent implements OnInit {
         text: 'Price Movements',
         align: 'left',
       },
-      labels: series.monthDataSeries1.dates,
+      labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       xaxis: {
         type:'string',
       },
@@ -116,7 +131,7 @@ export class AreaChartComponent implements OnInit {
         opposite: true,
       },
       legend: {
-        horizontalAlign: 'left',
+        show: false,
       },
     };
   }

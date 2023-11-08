@@ -8,7 +8,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
   styleUrls: ['./donut-chart.component.scss'],
   standalone: true,
   imports: [CommonModule, NgApexchartsModule],
-  host: { class: 'd-flex flex-grow-1 flex-column' },
+  host: { class: 'flexer' },
 })
 export class DonutChartComponent implements OnInit {
   public chartOptions: Partial<any>;
@@ -18,12 +18,17 @@ export class DonutChartComponent implements OnInit {
       series: [15, 35, 50],
       chart: {
         type: 'donut',
+        height: 300,
+        toolbar:{
+          show:true,
+          tools:{
+          }
+        }
       },
       colors: ['#3d5acf','#8fa4fb','#7b94f5'],
       labels: ['Men', 'Electronics', 'Women'],
       dataLabels: {
         enabled: false,
-        
       },
       legend: {
         position: 'bottom',
@@ -31,10 +36,15 @@ export class DonutChartComponent implements OnInit {
       title: {
         text: 'Top Products',
         align: 'left',
+        style: {
+          fontSize:  '15px',
+          fontWeight:  'bold',
+          color:  '#535866',
+          fontFamily: 'sans-serif'
+        },
       },
       plotOptions: {
         pie: {
-    
           customScale: 1,
           donut: {
             labels: {

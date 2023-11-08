@@ -22,7 +22,7 @@ import { ApiService } from 'src/shared/api.service';
     StackedBarChartComponent,
     UserListComponent,
   ],
-  host: { class: 'd-flex flex-grow-1 flex-column' },
+  host: { class: 'flexer' },
 })
 export class DashboardComponent implements OnInit {
   constructor(private service: ApiService) {}

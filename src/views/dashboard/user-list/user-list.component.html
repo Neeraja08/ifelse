@@ -1,5 +1,5 @@
 <div class="card users">
-  <div class="card-title">New User Registrations</div>
+  <div class="card-ttl">New User Registrations</div>
   <div class="user-list">
     <div class="user-item" *ngFor="let item of users;let i=index">
       <div class="avatar {{item.isActive?'active':''}}">
@@ -10,15 +10,15 @@
         <div class="location">{{item.country}}</div>
       </div>
       <div class="percent">
-        <div class="progress">
+        <div class="progress {{['primary','success','warning','secondary','danger'][i%5]}}">
           <div
             class="progress-bar"
             role="progressbar"
             [ngStyle]="{width: (item.progress||0)+'%'}"
-            aria-valuenow="25"
+            [attr.aria-valuenow]="item.progress"
             aria-valuemin="0"
             aria-valuemax="100"
-          ></div>
+          ></div>{{item.progress}}%
         </div>
       </div>
       <div class="actions">
