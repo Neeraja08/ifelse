@@ -3,14 +3,17 @@
 $primary: #506de2;
 $body-bg: #f4f7fc;
 $card-bg: #fff;
-$body-color: #474747;
+$body-color: #8d8e9c;
 $body-color-rgb: #b8bec6;
-
+$success: #30ce75;
+$danger: #ea586b;
+$warning: #fdc100;
+$secondary: #7584a2;
 ::-webkit-scrollbar {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #a19898;
+  background: $body-color-rgb;
 }
 ::-webkit-scrollbar-thumb {
   background: #888;
@@ -26,6 +29,10 @@ body {
   font-size: 12px;
   background-color: $body-bg;
   color: $body-color;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
 }
 
 .card {
@@ -36,8 +43,32 @@ body {
   word-wrap: break-word;
   background-color: $card-bg;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border: none;
+  border-radius: 0.3rem;
+}
+
+.butn{
+    display: inline-block;
+    padding: 0.175rem;
+    font-size: 0.65rem;
+    font-weight: 400;
+    line-height: 1;
+    color: $card-bg;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    border: 1px solid $primary;
+    border-radius: 0.175rem;
+    background-color: $primary;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &.butn-sec{
+      color: $body-color;
+      border-color: $body-color-rgb;
+      background-color: $body-bg;
+    }
 }
 
 .header {
@@ -61,6 +92,9 @@ body {
   padding: 1rem 1rem;
   padding-left: 56px;
   font-size: 0.6rem;
+  box-shadow: -1px 7px 34px -20px rgba(0,0,0,0.5);
+  -webkit-box-shadow: -1px 7px 34px -20px rgba(0,0,0,0.5);
+  -moz-box-shadow: -1px 7px 34px -20px rgba(0,0,0,0.5);
   svg {
     color: $body-color-rgb;
   }
@@ -73,9 +107,12 @@ body {
   }
   .rt {
     display: flex;
-    gap: 0.8rem;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
+    div{
+      cursor: pointer;
+    }
     .avatar {
       display: flex;
       justify-content: center;
@@ -138,6 +175,7 @@ body {
   }
   div {
     padding: 0 1rem;
+    cursor: pointer;
   }
 
   .burger {
@@ -165,17 +203,23 @@ body {
   padding: 10px;
   &.active {
     background-color: $primary;
-    color: #ffff !important;
+    color: $card-bg !important;
     .card-percentage {
-      color: #ffff !important;
+      color: $card-bg !important;
+    }
+    svg{
+      color: $card-bg !important;
     }
   }
   .card-text {
+    flex: 1;
     .card-percentage {
       font-size: 2rem;
       color: $primary;
     }
     .card-heading {
+      font-size: 0.9rem;
+      font-weight: 500;
     }
     .card-detail {
       overflow: hidden;
@@ -184,10 +228,143 @@ body {
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
       font-size: 10px;
+      color: $body-color-rgb;
     }
   }
   .card-logo {
     height: 40px;
     width: 40px;
+    svg{
+      color: $body-color-rgb;
+    }
+  }
+}
+
+.orders {
+  padding: 20px;
+  .card-title {
+    font-size: 1.5rem;
+  }
+  .order-table {
+    height: 300px;
+    overflow-y: auto;
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    tr {
+      border-top: 1px solid $body-bg;
+      background: $card-bg;
+      td,
+      th {
+        padding: 10px;
+        &:nth-child(4),&:nth-child(5),&:nth-child(6),&:nth-child(7){
+          text-align: center;
+        }
+      }
+      &:nth-child(1) {
+        position: sticky;
+        top: -1px;
+      }
+      th{
+        color: $secondary;
+        font-weight: 500;
+      }
+      td{
+        color: $body-color;
+      }
+    }
+    .status{
+      display: inline-block;
+      padding: 0.25rem 0.35rem;
+      margin: 0.2rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: 0.25rem;
+      background: $card-bg;
+      color: $card-bg;
+      border: solid 1px transparent;
+      &.Paid{
+        background: $success;
+      }
+      &.Pending{
+        background: $secondary;
+      }
+      &.Failed{
+        background: $danger;
+      }
+    }
+  }
+}
+
+.users {
+  padding: 20px;
+  .card-title {
+    font-size: 1.5rem;
+  }
+  .user-list {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    .user-item {
+      display: flex;
+      flex: 1;
+      padding: 10px;
+      gap: 0.5rem;
+      .percent {
+        width: 100px;
+        flex: 1;
+        margin: auto;
+        .progress {
+          border-radius: 5px;
+          background: rgb(185, 179, 179);
+          height: 8px;
+        }
+      }
+      .profile {
+        .location {
+          font-size: 12px;
+        }
+        .name {
+          font-size: 15px;
+          font-weight: 700;
+        }
+      }
+      .avatar{
+        position: relative;
+        img{
+          overflow: hidden;
+          width: 40px;
+          height: 40px;
+          border-radius: 30px;
+        }
+        &::after{
+          width: 10px;
+          height: 10px;
+          content: '';
+          background-color: $primary;
+          position: absolute;
+          border-radius: 50%;
+          border: 2px solid $card-bg;
+          bottom: 3px;
+          right: -1px;
+        }
+        &.active{
+          &::after{
+            background-color: $success;
+          }
+        }
+      }
+      .actions{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 }

@@ -13,7 +13,6 @@ import {
 } from 'ng-apexcharts';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
-import { series } from './data';
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   annotations: ApexAnnotations;
@@ -56,7 +55,6 @@ export class StackedBarChartComponent implements OnInit {
           show: false,
         },
         type: 'bar',
-        height: 350,
         stacked: true,
       },
       dataLabels: {

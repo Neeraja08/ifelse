@@ -18,7 +18,6 @@ export class DonutChartComponent implements OnInit {
       series: [15, 35, 50],
       chart: {
         type: 'donut',
-        height: 350,
       },
       colors: ['#3d5acf','#8fa4fb','#7b94f5'],
       labels: ['Men', 'Electronics', 'Women'],
@@ -38,7 +37,6 @@ export class DonutChartComponent implements OnInit {
     
           customScale: 1,
           donut: {
-            
             labels: {
               show: true,
               value:{

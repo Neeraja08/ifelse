@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-order-list',
@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   host: { class: 'd-flex flex-grow-1 flex-column' },
 })
 export class OrderListComponent implements OnInit {
+  @Input() orders:any=[];
   constructor() {}
 
   ngOnInit() {}

@@ -51,7 +51,6 @@ export class AreaChartComponent implements OnInit {
           show: false
         },
         type: 'area',
-        height: 350,
         zoom: {
           enabled: false,
         },

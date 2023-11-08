@@ -1,13 +1,28 @@
 <div class="dashboard">
   <div class="cards">
-    <app-style-card [active]="true"> </app-style-card>
-    <app-style-card></app-style-card>
-    <app-style-card></app-style-card>
-    <app-style-card></app-style-card>
+    <ng-container *ngFor="let item of cards;let i =index">
+      <app-style-card [active]="i==0?true:false" [obj]="item">
+        <svg *ngIf="i==0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1664">
+          <path fill="currentColor"
+            d="M1536 96v1120q0 50-34 89t-86 60.5t-103.5 32t-96.5 10.5t-96.5-10.5t-103.5-32t-86-60.5t-34-89t34-89t86-60.5t103.5-32t96.5-10.5q105 0 192 39V526L640 763v709q0 50-34 89t-86 60.5t-103.5 32T320 1664t-96.5-10.5t-103.5-32t-86-60.5t-34-89t34-89t86-60.5t103.5-32T320 1280q105 0 192 39V352q0-31 19-56.5t49-35.5L1412 4q12-4 28-4q40 0 68 28t28 68z"/>
+        </svg>
+        <svg *ngIf="i==1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M20 15.552A9.215 9.215 0 0 1 11.21 22A9.21 9.21 0 0 1 2 12.79A9.215 9.215 0 0 1 8.448 4" opacity=".7"/><path d="M21.913 9.947a11.352 11.352 0 0 0-7.86-7.86C12.409 1.628 11 3.054 11 4.76v6.694c0 .853.692 1.545 1.545 1.545h6.694c1.707 0 3.133-1.41 2.674-3.053Z"/></g></svg>
+        <svg *ngIf="i==2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" stroke-linecap="round"stroke-linejoin="round" stroke-width="1.5">
+            <path d="M3 15c0 2.828 0 4.243.879 5.121C4.757 21 6.172 21 9 21h6c2.828 0 4.243 0 5.121-.879C21 19.243 21 17.828 21 15" opacity=".7"/>
+            <path d="M12 3v13m0 0l4-4.375M12 16l-4-4.375" />
+          </g>
+        </svg>
+        <svg *ngIf="i==3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <g fill="currentColor"><path d="M12.079 2.25c-4.794 0-8.734 3.663-9.118 8.333H2a.75.75 0 0 0-.528 1.283l1.68 1.666a.75.75 0 0 0 1.056 0l1.68-1.666a.75.75 0 0 0-.528-1.283h-.893c.38-3.831 3.638-6.833 7.612-6.833a7.658 7.658 0 0 1 6.537 3.643a.75.75 0 1 0 1.277-.786A9.158 9.158 0 0 0 12.08 2.25Z"/><path d="M20.841 10.467a.75.75 0 0 0-1.054 0L18.1 12.133a.75.75 0 0 0 .527 1.284h.899c-.381 3.83-3.651 6.833-7.644 6.833a7.697 7.697 0 0 1-6.565-3.644a.75.75 0 1 0-1.276.788a9.197 9.197 0 0 0 7.84 4.356c4.809 0 8.766-3.66 9.151-8.333H22a.75.75 0 0 0 .527-1.284l-1.686-1.666Z" opacity=".7"/></g>
+        </svg>
+      </app-style-card>
+    </ng-container>
   </div>
   <div class="lists">
-    <app-order-list></app-order-list>
-    <app-user-list></app-user-list>
+    <app-order-list [orders]="orders"></app-order-list>
+    <app-user-list [users]="users"></app-user-list>
   </div>
   <div class="charts">
     <app-area-chart></app-area-chart>

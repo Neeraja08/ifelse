@@ -13,22 +13,10 @@ import { asyncScheduler, map } from 'rxjs';
 })
 export class StyleCardComponent implements OnInit {
   @Input() active: boolean = false;
+  @Input() obj: any = {};
   topcards: any;
   constructor() {}
 
   ngOnInit() {}
-  // getAllData(obj: any) {
-  //   return this.http
-  //     .get<any>(`$ 1.api.fy23ey05.careers.ifelsecloud.com/`, { params: obj })
-  //     .pipe(
-  //       map((res: any) => {
-  //         return res;
-  //       })
-  //     );
-  // }
-  // getData(obj: any) {
-  //   this.dataService.getAllData(obj).subscribe((res: any) => {
-  //     this.topcards = res.top_cards;
-  //   });
-  // }
+  
 }

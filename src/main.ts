@@ -5,6 +5,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { LayoutComponent } from './layout/layout.component';
 import { provideRouter, RouterOutlet } from '@angular/router';
 import { routes } from './app.routes';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 @Component({
   selector: 'my-app',
@@ -19,5 +20,5 @@ export class App {
 }
 
 bootstrapApplication(App, {
-  providers: [provideRouter(routes)],
+  providers: [provideRouter(routes),provideHttpClient(withInterceptorsFromDi()),],
 });
