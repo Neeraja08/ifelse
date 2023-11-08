@@ -62,6 +62,10 @@ export class StackedBarChartComponent implements OnInit {
       dataLabels: {
         enabled: false,
       },
+      title: {
+        text: 'Balance Overview',
+        align: 'left',
+      },
       responsive: [
         {
           breakpoint: 480,
