@@ -16,11 +16,11 @@
         <td>{{i+1}}</td>
         <td>{{item.name}}</td>
         <td>{{item.product}}</td>
-        <td>{{item.delivery_date}}</td>
+        <td>{{item.delivery_date|date:'dd MMM, yyyy'}}</td>
         <td><div class="status {{item.status}}">{{item.status}}</div></td>
         <td>{{item.tracking_no}}</td>
         <td>{{item.shipping?'Yes':'No'}}</td>
-        <td><div class="dlte">x</div></td>
+        <td><div class="dlte" (click)="show(item)">x</div></td>
       </tr>
     </table>
   </div>
